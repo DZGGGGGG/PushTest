@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MSTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,25 +17,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    AccountBookViewController *accountVC = [[AccountBookViewController alloc] init];
+//    BaseNavViewController *accountNav = [[BaseNavViewController alloc] initWithRootViewController:accountVC];
+//    accountNav.navigationBar.translucent = NO;
+//    accountNav.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:1];
+//
+//    ViewController *homeVC = [ViewController new];
+//    BaseNavViewController *homeNav = [[BaseNavViewController alloc] initWithRootViewController:homeVC];
+//    homeNav.navigationBar.translucent = NO;
+//    homeNav.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:2];
+//
+//
+//    UITabBarController *tabbarCr = [[UITabBarController alloc] init];
+//    [tabbarCr addChildViewController:accountNav];
+//    [tabbarCr addChildViewController:homeNav];
+    
+    MSTabBarController *baseTabbarVC = [MSTabBarController new];
+    
+    [self.window setRootViewController:baseTabbarVC];
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
-
-
-#pragma mark - UISceneSession lifecycle
-
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
-}
-
-
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-}
-
 
 @end
