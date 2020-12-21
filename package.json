@@ -1,0 +1,30 @@
+{
+  "name": "pushviewtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://DZGGGGGG:dingzhigang222@github.com/DZGGGGGG/PushTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DZGGGGGG/PushTest/issues"
+  },
+  "homepage": "https://github.com/DZGGGGGG/PushTest#readme",
+  "dependencies": {
+    "cordova-res": "^0.15.2",
+    "fs-extra": "^9.0.1",
+    "mobileprovision-parse": "^0.2.1",
+    "moment": "^2.29.1",
+    "node-osx-keychain": "^1.0.1",
+    "plist-json": "0.0.2",
+    "provisioning": "^1.5.0",
+    "xcode": "^3.0.1",
+    "xml2json": "^0.12.0"
+  }
+}

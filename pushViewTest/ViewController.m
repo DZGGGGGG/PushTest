@@ -13,8 +13,6 @@
 #define KdeviceHeight UIScreen.mainScreen.bounds.size.height
 
 @interface ViewController ()
-@property (nonatomic, strong) AnimatedClass *transition;
-
 @end
 
 @implementation ViewController
@@ -193,7 +191,7 @@
 - (void)push{
     AccountBookViewController *sec = [AccountBookViewController new];
     self.navigationController.delegate = self;
-    self.transition.type = DZGModalTransitionPush;
+//    self.transition.type = DZGModalTransitionPush;
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:sec animated:YES];
     self.hidesBottomBarWhenPushed = NO;

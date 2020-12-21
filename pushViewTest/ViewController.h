@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnimatedClass.h"
 
-@interface ViewController : UIViewController//<UINavigationControllerDelegate>
+@interface ViewController : UIViewController
 
 
 @end

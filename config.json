@@ -1,0 +1,33 @@
+{
+    "stringConfig": [{
+        "CFBundleIdentifier": "com.dzg001.pushTestdddddd",
+        "CFBundleName": "DZG的测试包",
+        "CFBundleShortVersionString": "1.0.1",
+        "CFBundleVersion": "2",
+        "ProvisioningProfile_Path": "",
+        "NSBluetoothPeripheralUsageDescription": "使用蓝牙来测试我这个项目",
+        "NSBluetoothAlwaysUsageDescription": "使用蓝牙来测试我这个项目",
+        "NSCameraUsageDescription": "使用相机做什么东西",
+        "NSMicrophoneUsageDescription": "使用麦克风做什么东西",
+        "NSPhotoLibraryUsageDescription": "使用相册做什么东西"
+    }],
+    "arrayConfig": [{
+        "LSApplicationQueriesSchemes": [
+            "wechat111",
+            "weixin222",
+            "weixinULAPI333"
+        ]
+    }],
+    "dictConfig": [{
+        "CFBundleURLTypes": [{
+            "CFBundleTypeRole": "Editor",
+            "CFBundleURLName": "bbb",
+            "CFBundleURLSchemes": ["dzgggggggSchemes"]
+        },{
+            "CFBundleTypeRole": "Editor",
+            "CFBundleURLName": "aaa",
+            "CFBundleURLSchemes": ["ddddddd"]
+        }]
+    }]
+
+}
