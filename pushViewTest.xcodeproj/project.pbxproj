@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03F578952BF0893E93E4B742 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		09BCAD6B7772F008FEEC8532 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		21AA0DC3112A45BFEB5B2BD7 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		2A42978425677CEA00428DDE /* AccountBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A42978325677CEA00428DDE /* AccountBookViewController.m */; };
 		2A54C6D02580CE0A00721DA8 /* AddBillInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A54C6CF2580CE0A00721DA8 /* AddBillInfoViewController.m */; };
 		2A54C6D42580E33200721DA8 /* DZGHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A54C6D32580E33200721DA8 /* DZGHeaderCollectionViewCell.m */; };
@@ -18,8 +15,6 @@
 		2A57B8562574DDB400D346E6 /* MSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A57B8552574DDB400D346E6 /* MSTabBarController.m */; };
 		2A6F14D22570E29B00BB35CB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F14D12570E29B00BB35CB /* SecondViewController.m */; };
 		2A6F14D52570E58A00BB35CB /* BaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F14D42570E58A00BB35CB /* BaseNavViewController.m */; };
-		2A7A40032590B0DC00DDFE26 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		2A7A40042590B0DC00DDFE26 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		2A98CE1A2563B88600591BAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98CE192563B88600591BAE /* AppDelegate.m */; };
 		2A98CE202563B88600591BAE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98CE1F2563B88600591BAE /* ViewController.m */; };
 		2A98CE252563B88800591BAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A98CE242563B88800591BAE /* Assets.xcassets */; };
@@ -29,25 +24,6 @@
 		2A98CE402563B88800591BAE /* pushViewTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98CE3F2563B88800591BAE /* pushViewTestUITests.m */; };
 		2AB3EB6225773B0C000121BF /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3EB6125773B0C000121BF /* TestObject.m */; };
 		3520753B7A0D5A6E1656EFE8 /* libPods-pushViewTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 712C93B15B429B962125E746 /* libPods-pushViewTest.a */; };
-		3CF89F05AAA39035A941B888 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		3F1FF7669E6A4DF73BDEF82D /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		46F03F5037999237F563997A /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		5B5DF997E7F1EEF8FA04CED3 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		5B61F0424163612809EA6860 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		5D8F113154196A7C1090A48D /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		622599994C7D42E690B7D9D2 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		692804F808750569646E1FBC /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		6A5B2AAB6595F1244767DF94 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		6AF38BD6C4DB2E0A20F95565 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		6FF784AA65318D54F8A0EE8E /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		749086F6C291339C01CA9505 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		8E4F2C5D8F0C44D6DAD3706D /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		94217216B7F2E5E1DE37A88F /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		A2B4AA7D0847B5E75CDE6F5B /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		A2D3FA65C2FCC96ADDDA1534 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		A917CFB5F031DFDF2D1F48CC /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		A9FD6186B3C33D2E494F9AEA /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		EB728360A6CAC08CE8351E06 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		007136FCD90C83805AF34E68 /* icon-60@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@2x.png"; sourceTree = "<group>"; };
-		1144F994A599CC07ED5701E4 /* icon-1024.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = "<group>"; };
-		1E5F971F39BD325A3278ADF5 /* icon-60@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
 		2A42978225677CEA00428DDE /* AccountBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountBookViewController.h; sourceTree = "<group>"; };
 		2A42978325677CEA00428DDE /* AccountBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountBookViewController.m; sourceTree = "<group>"; };
 		2A54C6CE2580CE0A00721DA8 /* AddBillInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddBillInfoViewController.h; sourceTree = "<group>"; };
@@ -104,11 +77,14 @@
 		2A98CE412563B88800591BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AB3EB6025773B0C000121BF /* TestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
 		2AB3EB6125773B0C000121BF /* TestObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
-		47DF2E8B245C7CB8A98332C5 /* 1111111.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 1111111.js; sourceTree = "<group>"; };
-		566F99D3151E692876693EF4 /* 2222222.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 2222222.js; sourceTree = "<group>"; };
+		2C944A9E5C2CA125BF588726 /* 2.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 2.js; sourceTree = "<group>"; };
+		548688465E5DE24022B2A802 /* icon-60@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
 		712C93B15B429B962125E746 /* libPods-pushViewTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pushViewTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		715E2D1A5AA7221FB95AD316 /* Pods-pushViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pushViewTest.debug.xcconfig"; path = "Target Support Files/Pods-pushViewTest/Pods-pushViewTest.debug.xcconfig"; sourceTree = "<group>"; };
 		9E1D441AE5E625D7607EBA59 /* Pods-pushViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pushViewTest.release.xcconfig"; path = "Target Support Files/Pods-pushViewTest/Pods-pushViewTest.release.xcconfig"; sourceTree = "<group>"; };
+		A4115EB8C5996A1E42A186D8 /* icon-1024.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = "<group>"; };
+		BD9A649BACF854A6948FEAD4 /* icon-60@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@2x.png"; sourceTree = "<group>"; };
+		C3378B103128F4CFCA6442B3 /* 1.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 1.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,17 +113,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0130729214329640A8BADA14 /* 11111 */ = {
-			isa = PBXGroup;
-			children = (
-				1E5F971F39BD325A3278ADF5 /* icon-60@3x.png */,
-				1144F994A599CC07ED5701E4 /* icon-1024.png */,
-				007136FCD90C83805AF34E68 /* icon-60@2x.png */,
-			);
-			name = 11111;
-			path = 11111;
-			sourceTree = "<group>";
-		};
 		0C054FF93617146689EECFE1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,9 +180,9 @@
 		2A7A3FF92590B0DC00DDFE26 /* ios2 */ = {
 			isa = PBXGroup;
 			children = (
-				0130729214329640A8BADA14 /* 11111 */,
-				47DF2E8B245C7CB8A98332C5 /* 1111111.js */,
-				566F99D3151E692876693EF4 /* 2222222.js */,
+				2C944A9E5C2CA125BF588726 /* 2.js */,
+				C3378B103128F4CFCA6442B3 /* 1.js */,
+				9E673698A3C5381E409B9401 /* 3 */,
 			);
 			path = ios2;
 			sourceTree = "<group>";
@@ -287,6 +252,17 @@
 				712C93B15B429B962125E746 /* libPods-pushViewTest.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E673698A3C5381E409B9401 /* 3 */ = {
+			isa = PBXGroup;
+			children = (
+				548688465E5DE24022B2A802 /* icon-60@3x.png */,
+				A4115EB8C5996A1E42A186D8 /* icon-1024.png */,
+				BD9A649BACF854A6948FEAD4 /* icon-60@2x.png */,
+			);
+			name = 3;
+			path = 3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,9 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A98CE282563B88800591BAE /* LaunchScreen.storyboard in Resources */,
-				2A7A40032590B0DC00DDFE26 /* BuildFile in Resources */,
 				2A98CE252563B88800591BAE /* Assets.xcassets in Resources */,
-				2A7A40042590B0DC00DDFE26 /* BuildFile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,28 +432,6 @@
 				2A57B8532574D51700D346E6 /* MSCustomTabBar.m in Sources */,
 				2A54C6D72580E33E00721DA8 /* DZGContentCollectionViewCell.m in Sources */,
 				2A42978425677CEA00428DDE /* AccountBookViewController.m in Sources */,
-				622599994C7D42E690B7D9D2 /* BuildFile in Sources */,
-				749086F6C291339C01CA9505 /* BuildFile in Sources */,
-				A2B4AA7D0847B5E75CDE6F5B /* BuildFile in Sources */,
-				A2D3FA65C2FCC96ADDDA1534 /* BuildFile in Sources */,
-				A917CFB5F031DFDF2D1F48CC /* BuildFile in Sources */,
-				3CF89F05AAA39035A941B888 /* BuildFile in Sources */,
-				5B61F0424163612809EA6860 /* BuildFile in Sources */,
-				03F578952BF0893E93E4B742 /* BuildFile in Sources */,
-				692804F808750569646E1FBC /* BuildFile in Sources */,
-				5B5DF997E7F1EEF8FA04CED3 /* BuildFile in Sources */,
-				6AF38BD6C4DB2E0A20F95565 /* BuildFile in Sources */,
-				6FF784AA65318D54F8A0EE8E /* BuildFile in Sources */,
-				EB728360A6CAC08CE8351E06 /* BuildFile in Sources */,
-				46F03F5037999237F563997A /* BuildFile in Sources */,
-				3F1FF7669E6A4DF73BDEF82D /* BuildFile in Sources */,
-				A9FD6186B3C33D2E494F9AEA /* BuildFile in Sources */,
-				5D8F113154196A7C1090A48D /* BuildFile in Sources */,
-				21AA0DC3112A45BFEB5B2BD7 /* BuildFile in Sources */,
-				6A5B2AAB6595F1244767DF94 /* BuildFile in Sources */,
-				09BCAD6B7772F008FEEC8532 /* BuildFile in Sources */,
-				8E4F2C5D8F0C44D6DAD3706D /* BuildFile in Sources */,
-				94217216B7F2E5E1DE37A88F /* BuildFile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

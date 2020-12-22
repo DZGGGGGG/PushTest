@@ -1,10 +1,9 @@
 const KeyChain = require('node-osx-keychain')
 const Thread = require("./utils/Thread");
 const parse = require("mobileprovision-parse");
-const fs = require("fs");
+// const fs = require("fs");
 const path = require('path')
 const thread = new Thread();
-const log = require('./toolsLog')
 
 
 //  需要修改的参数
@@ -21,15 +20,8 @@ async function importP12(p12Path,p12PassWord){
   let result = await thread.runExec(importKeyStr);
   console.log(result);
 }
-async function exportArchive(xcworkspaceName,archivePath,archiveType,certName,mobileprovisionUUID,bundleID){
-  const xcodeArchiveStr = `xcodebuild archive -workspace ${xcworkspaceName}.xcworkspace -scheme ${xcworkspaceName} -archivePath ${archivePath} -configuration ${archiveType} CODE_SIGN_IDENTITY="${certName}" PROVISIONING_PROFILE=${mobileprovisionUUID} PRODUCT_BUNDLE_IDENTIFIER="${bundleID}"`;
-  // /**  导出ipa  需要exportIPAPath（导出地址） exportTemplateFile（模板文件） */
-  outPut = await thread.runExec(xcodeArchiveStr);
-  return outPut;
-}
-
 async function searchCertName(teamID){
-  const db = await thread.runExec(`security find-identity -p codesigning /Users/mt010/Library/Keychains/login.keychain-db`)
+  const db = await thread.runExec(`security find-identity -p codesigning ~/Library/Keychains/login.keychain-db`)
   // 拿到已安装的key
   const MatchingStr  = db.match(/Matching\sidentities([\s\S]*)\d+\sidentities\sfound/)
   if (MatchingStr === null){
@@ -72,42 +64,48 @@ async function searchCertName(teamID){
     throw '没有匹配到有效证书'
   }
 }
-
+async function clearBuild(copyMBFilePath,xcworkspaceName,archiveType){
+    //删除UUID.mobileprovision文件
+    
+    //清空项目 
+    const xcodeCleanStr = `xcodebuild clean -workspace ../${xcworkspaceName}.xcworkspace -scheme ${xcworkspaceName} -configuration ${archiveType}`;
+    outPut = await thread.runExec(xcodeCleanStr);
+    console.log("清空打包环境",outPut)
+    outPut = await thread.runExec(`rm -f ${copyMBFilePath}`);
+    console.log("删除拷贝后的mobileprovision成功")
+}
 async function runBuildIPA() {
   let outPut;
-  outPut = await importP12("/Users/mt010/Desktop/打包测试/生产证书.p12","123456");
-
-  const mpFilePath = "/Users/mt010/Desktop/打包测试/cocono3Test.mobileprovision";
+  outPut = await importP12("~/Desktop/打包测试/生产证书.p12","123456");
+  console.log(outPut)
+  const mpFilePath = "~/Desktop/打包测试/cocono3Test.mobileprovision";
   /**  拷贝文件至指定位置，并以UUID命名 获取描述文件中UUID mobileprovisionUUID  */
   const mbInfo = await parse(mpFilePath);
-  // console.log(mbInfo)
   const certName = await searchCertName(mbInfo.team.id)
-  // const certName = `iPhone Distribution: ${mbInfo.team.name} (${mbInfo.team.id})`;
   console.log(certName)
   const mobileprovisionUUID = mbInfo.uuid;
-  const copyMBFileStr = `cp ${mpFilePath} ~/Library/MobileDevice/Provisioning\\ Profiles/${mobileprovisionUUID}.mobileprovision`; //复制描述文件到本机指定地址
-  try {
-    outPut = await thread.runExec(copyMBFileStr);
-  } catch (error) {
-    console.log(error);
-  }
+  const copyMBFilePath = `~/Library/MobileDevice/Provisioning\\ Profiles/509ca890-7cf3-48a0-b33d-31f4ea09dd7d.mobileprovision`
+  const copyMBFileStr = `cp ${mpFilePath} ${copyMBFilePath}`; //复制描述文件到本机指定地址
+  // const copyMBFileStr = `cp ${mpFilePath} ~/Library/MobileDevice/Provisioning\\ Profiles/${mobileprovisionUUID}.mobileprovision`; //复制描述文件到本机指定地址
+  outPut = await thread.runExec(copyMBFileStr);
+  console.log(outPut)
   /**  读取mobileprovision文件内容并取出 certName（证书的名称）,bundleID，archiveType（打什么类型的包），archivePath（导出的archive地址），xcworkspaceName（项目名称）  */
   const xcworkspaceName = "pushViewTest";
-  const archivePath = "/Users/mt010/Desktop/打包测试/pushViewTest.xcarchive";
+  const archivePath = "~/Desktop/打包测试/pushViewTest.xcarchive";
   const archiveType = "release";
   const bundleID = "com.mthd.cocoono3";
-  const xcodeArchiveStr = `xcodebuild archive -workspace ${xcworkspaceName}.xcworkspace -scheme ${xcworkspaceName} -archivePath ${archivePath} -configuration ${archiveType} CODE_SIGN_IDENTITY="${certName}" PROVISIONING_PROFILE=${mobileprovisionUUID} PRODUCT_BUNDLE_IDENTIFIER="${bundleID}"`;
+  const xcodeArchiveStr = `xcodebuild archive -workspace ../${xcworkspaceName}.xcworkspace -scheme ${xcworkspaceName} -archivePath ${archivePath} -configuration ${archiveType} CODE_SIGN_IDENTITY="${certName}" PROVISIONING_PROFILE=${mobileprovisionUUID} PRODUCT_BUNDLE_IDENTIFIER="${bundleID}"`;
   /**  导出ipa  需要exportIPAPath（导出地址） exportTemplateFile（模板文件） */
   outPut = await thread.runExec(xcodeArchiveStr);
-  // outPut = await exportArchive(xcworkspaceName,archivePath,archiveType,certName,mobileprovisionUUID,bundleID);
-  // console.log(outPut)
-  
+  console.log(outPut)
 
-  // const exportIPAPath = "/Users/mt010/Desktop/打包测试";
-  // const exportTemplateFile =
-  //   "/Users/mt010/Desktop/打包测试/v2connect_dev.plist";
-  // const exportIPAFileStr = `xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportIPAPath} -exportOptionsPlist ${exportTemplateFile}  -allowProvisioningUpdates`;
-  // outPut = await thread.runExec(exportIPAFileStr);
-  // console.log(outPut)
+  const exportIPAPath = "~/Desktop/打包测试";
+  const exportTemplateFile =
+    "~/Desktop/打包测试/v2connect_dev.plist";
+  const exportIPAFileStr = `xcodebuild -exportArchive -archivePath ${archivePath} -exportPath ${exportIPAPath} -exportOptionsPlist ${exportTemplateFile}  -allowProvisioningUpdates`;
+  outPut = await thread.runExec(exportIPAFileStr);
+  console.log(outPut)
+
+  outPut = await clearBuild(copyMBFilePath,xcworkspaceName,archiveType);
 }
 module.exports = runBuildIPA;

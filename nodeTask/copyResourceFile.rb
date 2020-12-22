@@ -6,13 +6,13 @@ projectName = "pushViewTest"
 project_path = File.join(File.dirname(__FILE__), "../pushViewTest.xcodeproj")
 $project = Xcodeproj::Project.open(project_path)
 target = $project.targets.first
-$fileAddress = File.join('pushViewTest', 'res', 'ios2') ##### xcode内的项目文件夹  当前目录下的 /pushViewTest/res/ios2  暂时写死
-to_group = $project.main_group.find_subpath($fileAddress, true)   
+$fileAddress = File.join('../pushViewTest', 'res', 'ios2') # 需要做本地文件目录更替的文件
+to_group = $project.main_group.find_subpath(File.join('pushViewTest', 'res', 'ios2'), true)    #这里应该用项目内的相对路径 和上面的路径不相同 如何更换目录这里都不用更换 除非更换项目内的文件夹
 to_group.set_source_tree('<group>')
-to_group.set_path('ios2') # 暂时写死
+# to_group.set_path('ios2') # 暂时写死
+print to_group.real_path,"\n"
 
 def copyFileToGruop(fileFromPath,fileToPath)
-    print fileFromPath,'1111111111',fileToPath
     FileUtils.copy_entry(fileFromPath,fileToPath)
 end
 
@@ -34,8 +34,10 @@ def addFilesToGroup(project, aTarget, aGroup)
     Dir.foreach(aGroup.real_path) do |entry|
         filePath = File.join(aGroup.real_path, entry)
         # 过滤目录和.DS_Store文件
+            print "entry:::::::",entry,"\n"
         if !File.directory?(filePath) && entry != ".DS_Store" then
             # 向group中增加文件引用
+            # print "filePath:::::::",filePath,"\n"
             fileReference = aGroup.new_reference(filePath)
             # 如果不是头文件则继续增加到Build Phase中，PB文件需要加编译标志
             if filePath.to_s.end_with?("pbobjc.m", "pbobjc.mm") then
@@ -48,6 +50,8 @@ def addFilesToGroup(project, aTarget, aGroup)
         # 目录情况下, 递归添加
         elsif File.directory?(filePath) && entry != '.' && entry != '..' then
           hierarchy_path = aGroup.hierarchy_path[1, aGroup.hierarchy_path.length] 
+          print "entry==..------",entry == '..',"\n"
+          print "entryIS------",entry,"\n"
           subGroup = project.main_group.find_subpath(hierarchy_path + '/' + entry, true)
           subGroup.set_source_tree(aGroup.source_tree)
           subGroup.set_path(aGroup.real_path + entry)
@@ -73,7 +77,7 @@ end
 def runScript(target,to_group) #步骤合集
     print("删除目标地址原有文件中.....\n")
     deleteToGroup($fileAddress,false) #复制文件前先将项目工程资源目录下所有文件删除掉  删除文件实体
-    copyFileToGruop(File.join('ResTestGroup'),$fileAddress) #将资源文件复制到ios2目录下 复制文件实体到项目资源目录下  暂时写死
+    copyFileToGruop(File.join('../ResTestGroup'),$fileAddress) #将资源文件复制到ios2目录下 复制文件实体到项目资源目录下  暂时写死
     if !to_group.empty? then
         removeBuildPhaseFilesRecursively(target, to_group)#删除引用
         to_group.clear()#清空引用

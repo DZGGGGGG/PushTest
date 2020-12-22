@@ -1,34 +1,48 @@
 const ptools = require("./utils/PlistTools");
 
 const ExtraFields = {
-  CFBundleVersion : "",
-  CFBundleName : "",
-  CFBundleShortVersionString : "",
-  CFBundleIdentifier : "",
+  CFBundleVersion: "",
+  CFBundleName: "",
+  CFBundleShortVersionString: "",
+  CFBundleIdentifier: "",
   WhiteList: [],
   CFBundleURLTypes: [],
-  UIBackgroundModes :[],
-  NSAppTransportSecurity :[],
+  UIBackgroundModes: [],
+  NSAppTransportSecurity: [],
   permissionString: {
     camera: "NSCameraUsageDescription",
     album: "NSPhotoLibraryUsageDescription",
     bluetooth: "NSBluetoothPeripheralUsageDescription",
     bluetoothiOS13: "NSBluetoothAlwaysUsageDescription",
     microphone: "NSMicrophoneUsageDescription",
-    photo:"NSPhotoLibraryAddUsageDescription",
+    photo: "NSPhotoLibraryAddUsageDescription",
   },
 };
-
 async function configurationModify(appConfig) {
   const permissionArr = [];
   const hash = {};
   const config = await ptools.parse("./Template/defaultInfo.plist");
-  const podListInstall = appConfig.component.filter((item) => item.install);
+  const resultArr = [];
+  const podListInstall = appConfig.component.filter((item) => item.install); //权限列表置换成ios的版本
+  if (appConfig.appID.trim() == "" || appConfig.appID === null) {
+    throw "appID不能为空";
+  }
+  if (appConfig.appName.trim() == "" || appConfig.appName === null) {
+    throw "appID不能为空";
+  }
+  if (appConfig.version.trim() == "" || appConfig.version === null) {
+    throw "appID不能为空";
+  }
+  if (appConfig.buildVersion.trim() == "" || appConfig.buildVersion === null) {
+    throw "appID不能为空";
+  }
   ExtraFields.UIBackgroundModes = appConfig.UIBackgroundModes;
-  ExtraFields.CFBundleIdentifier = appConfig.appID
-  ExtraFields.CFBundleName = appConfig.appName
-  ExtraFields.CFBundleShortVersionString = appConfig.version
-  ExtraFields.CFBundleVersion = appConfig.buildVersion ? "1" : appConfig.buildVersion
+  ExtraFields.CFBundleIdentifier = appConfig.appID;
+  ExtraFields.CFBundleName = appConfig.appName;
+  ExtraFields.CFBundleShortVersionString = appConfig.version;
+  ExtraFields.CFBundleVersion = appConfig.buildVersion
+    ? "1"
+    : appConfig.buildVersion;
   if (appConfig.appScheme) {
     ExtraFields.CFBundleURLTypes.push({
       CFBundleTypeRole: "Editor",
@@ -36,8 +50,8 @@ async function configurationModify(appConfig) {
       CFBundleURLSchemes: [appConfig.appScheme],
     });
   }
-  if (appConfig.isHTTPS){
-    ExtraFields.NSAppTransportSecurity = {NSAllowsArbitraryLoads :true}
+  if (appConfig.isHTTPS) {
+    ExtraFields.NSAppTransportSecurity = { NSAllowsArbitraryLoads: true };
   }
   podListInstall.map((item) => {
     if (item.permission) {
@@ -62,14 +76,14 @@ async function configurationModify(appConfig) {
       });
     }
   });
-  const resultArr = permissionArr.reduce(function (item, next) {
-    hash[next.permissionKey]
-      ? ""
-      : (hash[next.permissionKey] = true && item.push(next));
-    return item;
-  }, []);
-
-
+  if (permissionArr.length > 0) {
+    resultArr = permissionArr.reduce(function (item, next) {
+      hash[next.permissionKey]
+        ? ""
+        : (hash[next.permissionKey] = true && item.push(next));
+      return item;
+    }, []);
+  }
   config.CFBundleName = ExtraFields.CFBundleName;
   config.CFBundleVersion = ExtraFields.CFBundleVersion;
   config.CFBundleIdentifier = ExtraFields.CFBundleIdentifier;
@@ -86,7 +100,7 @@ async function configurationModify(appConfig) {
   if (ExtraFields.NSAppTransportSecurity.length > 0)
     config.NSAppTransportSecurity = ExtraFields.NSAppTransportSecurity;
   const saveRes = await ptools.save("../pushViewTest/Info.plist", config);
-  console.log(saveRes)
+  console.log(saveRes);
 }
 
 module.exports = configurationModify;

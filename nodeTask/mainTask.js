@@ -8,21 +8,25 @@ const thread = new Thread()
 
 const appConfig = require(`./appConfig`)
 const path = require('path')
+const log = require('./toolsLog')
 
 global.logfile = path.resolve('./log/1.log')
 !(async () => {
-
-  // 1 copy files
+  try {
+    // 1 copy files
   await thread.runExec("ruby copyResourceFile.rb");
 
-  // 2 edit info.plist file
+  // // // 2 edit info.plist file
   await setConfig(appConfig); //读取配置 修改info.plist文件等
 
-  // 3 pod intall
-  // await setPodfile(appConfig.component); // 修改podFile文件并且po install  module名字还要修改
+  // // // 3 pod intall
+  await setPodfile(appConfig.component); // 修改podFile文件并且po install  module名字还要修改
 
   // 4 build IPA
   await runBuildIPA();
+  } catch (error) {
+    log(error)
+  }
 })();
 
 //---------- 自动生成icon
