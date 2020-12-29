@@ -1,16 +1,47 @@
 require 'xcodeproj'
 # 需要修改的参数  projectName 项目名称   fileAddress资源路径暂时固定  icon替换的文件目录
 # 获取操作project的对象
-projectName = "pushViewTest"
-# project_path = "./pushViewTest.xcodeproj" ##### 项目文件所在  暂时写死 
-project_path = File.join(File.dirname(__FILE__), "../pushViewTest.xcodeproj")
-$project = Xcodeproj::Project.open(project_path)
+# projectName = "pushViewTest" 
+# ARGV[0] = projectName 
+# ARGV[1] = xcodeproj_path
+# ARGV[2] = resource_path
+# print ARGV[2] , "\n"
+# xcodeproj_path = "/Users/mt010/Desktop/DZG_Desktop/打包类/test/pushViewTest/pushViewTest.xcodeproj" ##### 项目文件所在  暂时写死 
+# resource_path = "/Users/mt010/Desktop/DZG_Desktop/打包类/test/pushViewTest/pushViewTest"
+
+# xcodeproj_path = File.join("/Users/mt010/Desktop/DZG_Desktop/打包类/test/pushViewTest/pushViewTest.xcodeproj")
+projectName = ARGV[0]
+xcodeproj_path = ARGV[1]
+resource_path = ARGV[2]
+$project = Xcodeproj::Project.open(xcodeproj_path)
 target = $project.targets.first
-$fileAddress = File.join('../pushViewTest', 'res', 'ios2') # 需要做本地文件目录更替的文件
-to_group = $project.main_group.find_subpath(File.join('pushViewTest', 'res', 'ios2'), true)    #这里应该用项目内的相对路径 和上面的路径不相同 如何更换目录这里都不用更换 除非更换项目内的文件夹
+$fileAddress = File.join(resource_path, 'res', 'ios2') # 需要做本地文件目录更替的文件
+
+to_group = $project.main_group.find_subpath(File.join(projectName, 'res', 'ios2'), true)    #这里应该用项目内的相对路径 和上面的路径不相同 如何更换目录这里都不用更换 除非更换项目内的文件夹
 to_group.set_source_tree('<group>')
-# to_group.set_path('ios2') # 暂时写死
-print to_group.real_path,"\n"
+
+# DZG
+def addPushEntitlements
+    entitlement_path = projectName + "/" + projectName + ".entitlements" #没问题 相对路径
+    file = $project.new_file(entitlement_path) #新建一个推送文件  没有问题
+    # print "dzgzgzgz ::: : : : :", $project.root_object.attributes['TargetAttributes'] , "\n"
+    attributes = {}
+    $project.targets.each do |target|
+        attributes[target.uuid] = {"SystemCapabilities" => {"com.apple.Push" => {"enabled" => 1}}} #有问题？
+        target.add_file_references([file])
+        puts "Added to target: " + target.uuid
+    end
+    print "ddddd" , attributes , "\n"
+    $project.root_object.attributes['TargetAttributes'] = attributes #有问题？
+
+    $project.build_configurations.each do |config|
+        config.build_settings.store("CODE_SIGN_ENTITLEMENTS", entitlement_path)
+    end
+    puts "Added entitlements file path: " + entitlement_path
+    # $project.recreate_user_schemes
+    $project.save
+end
+# DZG
 
 def copyFileToGruop(fileFromPath,fileToPath)
     FileUtils.copy_entry(fileFromPath,fileToPath)
@@ -34,7 +65,6 @@ def addFilesToGroup(project, aTarget, aGroup)
     Dir.foreach(aGroup.real_path) do |entry|
         filePath = File.join(aGroup.real_path, entry)
         # 过滤目录和.DS_Store文件
-            print "entry:::::::",entry,"\n"
         if !File.directory?(filePath) && entry != ".DS_Store" then
             # 向group中增加文件引用
             # print "filePath:::::::",filePath,"\n"
@@ -50,8 +80,6 @@ def addFilesToGroup(project, aTarget, aGroup)
         # 目录情况下, 递归添加
         elsif File.directory?(filePath) && entry != '.' && entry != '..' then
           hierarchy_path = aGroup.hierarchy_path[1, aGroup.hierarchy_path.length] 
-          print "entry==..------",entry == '..',"\n"
-          print "entryIS------",entry,"\n"
           subGroup = project.main_group.find_subpath(hierarchy_path + '/' + entry, true)
           subGroup.set_source_tree(aGroup.source_tree)
           subGroup.set_path(aGroup.real_path + entry)

@@ -1,4 +1,5 @@
 const ptools = require("./utils/PlistTools");
+const runc = require("./utils/runc");
 
 const ExtraFields = {
   CFBundleVersion: "",
@@ -18,12 +19,18 @@ const ExtraFields = {
     photo: "NSPhotoLibraryAddUsageDescription",
   },
 };
-async function configurationModify(appConfig) {
+async function configurationModify(
+  appConfig,
+  xcworkspaceName,
+  entitlementsPath,
+  projectDirPath
+) {
   const permissionArr = [];
   const hash = {};
   const config = await ptools.parse("./Template/defaultInfo.plist");
   const resultArr = [];
   const podListInstall = appConfig.component.filter((item) => item.install); //权限列表置换成ios的版本
+
   if (appConfig.appID.trim() == "" || appConfig.appID === null) {
     throw "appID不能为空";
   }
@@ -40,9 +47,7 @@ async function configurationModify(appConfig) {
   ExtraFields.CFBundleIdentifier = appConfig.appID;
   ExtraFields.CFBundleName = appConfig.appName;
   ExtraFields.CFBundleShortVersionString = appConfig.version;
-  ExtraFields.CFBundleVersion = appConfig.buildVersion
-    ? "1"
-    : appConfig.buildVersion;
+  ExtraFields.CFBundleVersion = appConfig.buildVersion;
   if (appConfig.appScheme) {
     ExtraFields.CFBundleURLTypes.push({
       CFBundleTypeRole: "Editor",
@@ -53,7 +58,8 @@ async function configurationModify(appConfig) {
   if (appConfig.isHTTPS) {
     ExtraFields.NSAppTransportSecurity = { NSAllowsArbitraryLoads: true };
   }
-  podListInstall.map((item) => {
+  podListInstall.map(async (item) => {
+    //const item = itemPlat.ios
     if (item.permission) {
       Object.keys(item.permission).forEach((key) => {
         permissionArr.push({
@@ -67,13 +73,16 @@ async function configurationModify(appConfig) {
           });
       });
     }
-    if (item.weChatID) {
+    if (item.module == "WechatModule") {
       ExtraFields.WhiteList.push("wechat", "weixin", "weixinULAPI");
-      ExtraFields.CFBundleURLTypes.push({
-        CFBundleTypeRole: "Editor",
-        CFBundleURLName: "weixin",
-        CFBundleURLSchemes: [item.weChatID],
-      });
+    }
+    if (item.module == "JpushModule") {
+      const config = await ptools.parse(entitlementsPath);
+      config["aps-environment"] = "development";
+      // delete config["aps-environment"]
+      const saveRes = await ptools.save(entitlementsPath, config);
+      console.log(saveRes);
+      console.log("执行添加push文件的操作");
     }
   });
   if (permissionArr.length > 0) {
@@ -99,7 +108,10 @@ async function configurationModify(appConfig) {
     config.UIBackgroundModes = ExtraFields.UIBackgroundModes;
   if (ExtraFields.NSAppTransportSecurity.length > 0)
     config.NSAppTransportSecurity = ExtraFields.NSAppTransportSecurity;
-  const saveRes = await ptools.save("../pushViewTest/Info.plist", config);
+  const saveRes = await ptools.save(
+    `${projectDirPath}/${xcworkspaceName}/info.plist`,
+    config
+  );
   console.log(saveRes);
 }
 

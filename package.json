@@ -24,6 +24,7 @@
     "node-osx-keychain": "^1.0.1",
     "plist-json": "0.0.2",
     "provisioning": "^1.5.0",
+    "shelljs": "^0.8.4",
     "xcode": "^3.0.1",
     "xml2json": "^0.12.0"
   }

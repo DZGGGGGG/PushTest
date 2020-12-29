@@ -23,6 +23,10 @@
 		2A98CE352563B88800591BAE /* pushViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98CE342563B88800591BAE /* pushViewTestTests.m */; };
 		2A98CE402563B88800591BAE /* pushViewTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98CE3F2563B88800591BAE /* pushViewTestUITests.m */; };
 		2AB3EB6225773B0C000121BF /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3EB6125773B0C000121BF /* TestObject.m */; };
+		2AE0858E259607D9000E4788 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE0858D259607D9000E4788 /* AuthenticationServices.framework */; };
+		2AE085902596085A000E4788 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE0858F2596085A000E4788 /* PassKit.framework */; };
+		2AE08592259608E7000E4788 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE08591259608E7000E4788 /* NetworkExtension.framework */; };
+		2AE0859425960907000E4788 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE0859325960907000E4788 /* MapKit.framework */; };
 		3520753B7A0D5A6E1656EFE8 /* libPods-pushViewTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 712C93B15B429B962125E746 /* libPods-pushViewTest.a */; };
 /* End PBXBuildFile section */
 
@@ -77,14 +81,18 @@
 		2A98CE412563B88800591BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AB3EB6025773B0C000121BF /* TestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
 		2AB3EB6125773B0C000121BF /* TestObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
-		2C944A9E5C2CA125BF588726 /* 2.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 2.js; sourceTree = "<group>"; };
-		548688465E5DE24022B2A802 /* icon-60@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
+		2AE0858D259607D9000E4788 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		2AE0858F2596085A000E4788 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		2AE08591259608E7000E4788 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		2AE0859325960907000E4788 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		437DB21355B4164FC0EE53F0 /* icon-60@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
+		6A8275352DFAB41C870F1031 /* 1.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 1.js; sourceTree = "<group>"; };
 		712C93B15B429B962125E746 /* libPods-pushViewTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pushViewTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		715E2D1A5AA7221FB95AD316 /* Pods-pushViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pushViewTest.debug.xcconfig"; path = "Target Support Files/Pods-pushViewTest/Pods-pushViewTest.debug.xcconfig"; sourceTree = "<group>"; };
 		9E1D441AE5E625D7607EBA59 /* Pods-pushViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pushViewTest.release.xcconfig"; path = "Target Support Files/Pods-pushViewTest/Pods-pushViewTest.release.xcconfig"; sourceTree = "<group>"; };
-		A4115EB8C5996A1E42A186D8 /* icon-1024.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = "<group>"; };
-		BD9A649BACF854A6948FEAD4 /* icon-60@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@2x.png"; sourceTree = "<group>"; };
-		C3378B103128F4CFCA6442B3 /* 1.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 1.js; sourceTree = "<group>"; };
+		A839F0DD500F539250CCC09B /* icon-60@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@2x.png"; sourceTree = "<group>"; };
+		D86F43E9FED1346DE9DAB139 /* icon-1024.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = "<group>"; };
+		D89CBE2E02A15852D948C104 /* 2.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 2.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE085902596085A000E4788 /* PassKit.framework in Frameworks */,
+				2AE08592259608E7000E4788 /* NetworkExtension.framework in Frameworks */,
+				2AE0859425960907000E4788 /* MapKit.framework in Frameworks */,
+				2AE0858E259607D9000E4788 /* AuthenticationServices.framework in Frameworks */,
 				3520753B7A0D5A6E1656EFE8 /* libPods-pushViewTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,9 +192,9 @@
 		2A7A3FF92590B0DC00DDFE26 /* ios2 */ = {
 			isa = PBXGroup;
 			children = (
-				2C944A9E5C2CA125BF588726 /* 2.js */,
-				C3378B103128F4CFCA6442B3 /* 1.js */,
-				9E673698A3C5381E409B9401 /* 3 */,
+				D89CBE2E02A15852D948C104 /* 2.js */,
+				6A8275352DFAB41C870F1031 /* 1.js */,
+				3D730E5A515839FD5181BDF5 /* 3 */,
 			);
 			path = ios2;
 			sourceTree = "<group>";
@@ -246,23 +258,27 @@
 			path = pushViewTestUITests;
 			sourceTree = "<group>";
 		};
-		811F5D9F8C7B346FA957F0B3 /* Frameworks */ = {
+		3D730E5A515839FD5181BDF5 /* 3 */ = {
 			isa = PBXGroup;
 			children = (
-				712C93B15B429B962125E746 /* libPods-pushViewTest.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9E673698A3C5381E409B9401 /* 3 */ = {
-			isa = PBXGroup;
-			children = (
-				548688465E5DE24022B2A802 /* icon-60@3x.png */,
-				A4115EB8C5996A1E42A186D8 /* icon-1024.png */,
-				BD9A649BACF854A6948FEAD4 /* icon-60@2x.png */,
+				437DB21355B4164FC0EE53F0 /* icon-60@3x.png */,
+				D86F43E9FED1346DE9DAB139 /* icon-1024.png */,
+				A839F0DD500F539250CCC09B /* icon-60@2x.png */,
 			);
 			name = 3;
 			path = 3;
+			sourceTree = "<group>";
+		};
+		811F5D9F8C7B346FA957F0B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AE0859325960907000E4788 /* MapKit.framework */,
+				2AE08591259608E7000E4788 /* NetworkExtension.framework */,
+				2AE0858F2596085A000E4788 /* PassKit.framework */,
+				2AE0858D259607D9000E4788 /* AuthenticationServices.framework */,
+				712C93B15B429B962125E746 /* libPods-pushViewTest.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,15 +348,25 @@
 				ORGANIZATIONNAME = live;
 				TargetAttributes = {
 					2A98CE142563B88600591BAE = {
-						CreatedOnToolsVersion = 11.3.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2A98CE2F2563B88800591BAE = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 2A98CE142563B88600591BAE;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2A98CE3A2563B88800591BAE = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 2A98CE142563B88600591BAE;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -510,6 +536,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = pushViewTest/abc.entitlements;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -568,6 +595,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = pushViewTest/abc.entitlements;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -593,18 +621,22 @@
 			baseConfigurationReference = 715E2D1A5AA7221FB95AD316 /* Pods-pushViewTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = pushViewTest/pushViewTest.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = pushViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iamge.pushViewTest;
+				MARKETING_VERSION = 1.3.8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mthd.shop123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -613,18 +645,22 @@
 			baseConfigurationReference = 9E1D441AE5E625D7607EBA59 /* Pods-pushViewTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = pushViewTest/pushViewTest.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = pushViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iamge.pushViewTest;
+				MARKETING_VERSION = 1.3.8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mthd.shop123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

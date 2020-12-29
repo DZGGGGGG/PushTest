@@ -1,5 +1,5 @@
 
 platform :ios,'9.0'
 target 'pushViewTest' do
-
+  pod 'JpushModule' , 1.00
 end

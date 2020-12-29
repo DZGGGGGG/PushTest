@@ -1,0 +1,26 @@
+[2020-12-25 16:03:30]  error: Couldn't load -exportOptionsPlist: The file “undefined” couldn’t be opened because there is no such file.
+
+Error Domain=NSCocoaErrorDomain Code=260 "The file “undefined” couldn’t be opened because there is no such file." UserInfo={NSFilePath=/Users/mt010/Desktop/DZG_Desktop/打包类/test/pushViewTest/nodeTask/undefined, NSUnderlyingError=0x7fe55a74dc90 {Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory"}}
+
+ [2020-12-25 17:19:15]  {} [2020-12-28 14:29:57]  ** ARCHIVE FAILED **
+
+ [2020-12-28 14:35:02]  ** ARCHIVE FAILED **
+
+ [2020-12-28 16:01:19]  ** ARCHIVE FAILED **
+
+ [2020-12-28 16:01:39]  2020-12-28 16:01:38.952 xcodebuild[9806:152660] [MT] IDEDistribution: -[IDEDistributionLogging _createLoggingBundleAtPath:]: Created bundle at path '/var/folders/n2/3g827g5s5ylg72mxgr26d1v00000gn/T/pushViewTest_2020-12-28_16-01-38.952.xcdistributionlogs'.
+error: exportArchive: "pushViewTest.app" requires a provisioning profile with the Push Notifications feature.
+
+Error Domain=IDEProvisioningErrorDomain Code=9 ""pushViewTest.app" requires a provisioning profile with the Push Notifications feature." UserInfo={IDEDistributionIssueSeverity=3, NSLocalizedDescription="pushViewTest.app" requires a provisioning profile with the Push Notifications feature., NSLocalizedRecoverySuggestion=Add a profile to the "provisioningProfiles" dictionary in your Export Options property list.}
+
+ [2020-12-28 16:03:38]  2020-12-28 16:03:38.540 xcodebuild[10070:154653] [MT] IDEDistribution: -[IDEDistributionLogging _createLoggingBundleAtPath:]: Created bundle at path '/var/folders/n2/3g827g5s5ylg72mxgr26d1v00000gn/T/pushViewTest_2020-12-28_16-03-38.539.xcdistributionlogs'.
+error: exportArchive: "pushViewTest.app" requires a provisioning profile with the Push Notifications feature.
+
+Error Domain=IDEProvisioningErrorDomain Code=9 ""pushViewTest.app" requires a provisioning profile with the Push Notifications feature." UserInfo={IDEDistributionIssueSeverity=3, NSLocalizedDescription="pushViewTest.app" requires a provisioning profile with the Push Notifications feature., NSLocalizedRecoverySuggestion=Add a profile to the "provisioningProfiles" dictionary in your Export Options property list.}
+
+ [2020-12-28 16:04:23]  2020-12-28 16:04:23.067 xcodebuild[10253:155906] [MT] IDEDistribution: -[IDEDistributionLogging _createLoggingBundleAtPath:]: Created bundle at path '/var/folders/n2/3g827g5s5ylg72mxgr26d1v00000gn/T/pushViewTest_2020-12-28_16-04-23.067.xcdistributionlogs'.
+error: exportArchive: "pushViewTest.app" requires a provisioning profile.
+
+Error Domain=IDEProvisioningErrorDomain Code=9 ""pushViewTest.app" requires a provisioning profile." UserInfo={IDEDistributionIssueSeverity=3, NSLocalizedDescription="pushViewTest.app" requires a provisioning profile., NSLocalizedRecoverySuggestion=Add a profile to the "provisioningProfiles" dictionary in your Export Options property list.}
+
+ [2020-12-28 16:06:52]  {} 
