@@ -28,15 +28,23 @@ function log(content) {
     exportIPAPath导出ipa的地址
     exportTemplateFile打包模板的地址
 */
-
-/* All Const */
 global.logfile = path.resolve("./log/1.log");
 const projectDirPath = `${solveUrl(
   "Desktop/DZG_Desktop/打包类/test/pushViewTest"
 )}`;
 const xcworkspaceName = "pushViewTest";
 const ConfigurationBasePath = solveUrl("Desktop/DZG_Desktop/打包类/打包测试");
-const IssuerID = "";
+
+// const ipaPath = `${projectObject.exportIPAPath}/${projectObject.xcworkspaceName}.ipa`;
+// const uploadType = "ios";
+// const apiKey = "6P4V7XY6XL";
+// const apiIssuer = "69a6de8f-7f3b-47e3-e053-5b8c7c11a4d1";
+const template = `
+platform :ios,'9.0'
+target 'pushViewTest' do
+{pod}
+end
+`;
 let projectObject = {
   certName: "",
   copyMBFilePath: "",
@@ -62,29 +70,18 @@ let projectObject = {
   exportTemplateFile: `${ConfigurationBasePath}/v2connect_dev.plist`,
   mpFilePathTrim: `${ConfigurationBasePath}/pushTestMB.mobileprovision`,
   p8FilePath: `${ConfigurationBasePath}/AuthKey_6P4V7XY6XL.p8`,
-  // p12Path: [
-  //   `${solveUrl("Desktop/DZG_Desktop/打包类/打包测试/生产证书.p12")}`,
-  //   `${solveUrl("Desktop/DZG_Desktop/打包类/打包测试/推送证书.p12")}`,
-  // ],
-  // exportTemplateFile: `${solveUrl(
-  //   "Desktop/DZG_Desktop/打包类/打包测试/v2connect_dev.plist"
-  // )}`,
-  // mpFilePathTrim: `${solveUrl(
-  //   "Desktop/DZG_Desktop/打包类/打包测试/pushTestMB.mobileprovision"
-  // )}`,
 };
 projectObject.xcworkspaceName = xcworkspaceName;
 projectObject.bundleID = appConfig.appID;
 
-const template = `
-platform :ios,'9.0'
-target 'pushViewTest' do
-{pod}
-end
-`;
-// 开始任务排序,用任务来部署执行，更容易控制过程
-// 清空任务,每个任务写自己的面条执行过程就可以了。
-task.on("clear", 8, async () => {
+let uploadObj = {
+  IPAPath:`${projectObject.exportIPAPath}/${projectObject.xcworkspaceName}.ipa`,
+  uploadType : "ios",
+  apiKey : "6P4V7XY6XL",
+  apiIssuer : "69a6de8f-7f3b-47e3-e053-5b8c7c11a4d1"
+}
+
+task.on("clear", 0, async () => {
   try {
     log(`0   清空xcodebuild环境以及描述文件`);
     const xcodeCleanStr = `xcodebuild clean -workspace ${projectObject.xcworkspacePath} -scheme ${projectObject.xcworkspaceName} -configuration ${projectObject.archiveType}`;
@@ -270,8 +267,7 @@ task.on("exp-ipa", 7, async () => {
   }
 });
 
-task.on("upload-ipa", 0, async () => {
-  //需要一个 密钥文件 存放到本机的用户目录的根目录下新建一个.private_keys 文件夹用于存放密钥文件  需要提供密钥以及IssuerID
+task.on("upload-ipa", 8, async () => {
   try {
     const private_keysFolder = solveUrl(".private_keys");
 
@@ -282,11 +278,7 @@ task.on("upload-ipa", 0, async () => {
       projectObject.p8FilePath,
       `${private_keysFolder}/AuthKey_6P4V7XY6XL.p8`
     );
-    const ipaPath = `${projectObject.exportIPAPath}/${projectObject.xcworkspaceName}.ipa`;
-    const uploadType = "ios";
-    const apiKey = "6P4V7XY6XL";
-    const apiIssuer = "69a6de8f-7f3b-47e3-e053-5b8c7c11a4d1";
-    const uploadIPAStr = `xcrun altool --upload-app -f ${ipaPath} -t ${uploadType} --apiKey ${apiKey} --apiIssuer ${apiIssuer} --upload`;
+    const uploadIPAStr = `xcrun altool --upload-app -f ${uploadObj.IPAPath} -t ${uploadObj.uploadType} --apiKey ${uploadObj.apiKey} --apiIssuer ${uploadObj.apiIssuer} --upload`;
     console.log("Uploading.....");
     await runc(uploadIPAStr);
     console.log("Upload Succeeded!!");
