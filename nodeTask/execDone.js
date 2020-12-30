@@ -10,7 +10,6 @@ const task = new Task();
 const appConfig = require(`./appConfig`);
 const setConfig = require("./setConfig");
 const ptools = require("./utils/PlistTools");
-const spawn = require("child_process").spawn;
 
 function solveUrl(url) {
   return path.join(process.env.HOME, url);
@@ -83,50 +82,42 @@ let uploadObj = {
 };
 
 task.on("clear", 0, async () => {
-  log(`0   清空xcodebuild环境以及描述文件`);
-  const xcodeCleanStr = `xcodebuild clean -workspace ${projectObject.xcworkspacePath} -scheme ${projectObject.xcworkspaceName} -configuration ${projectObject.archiveType}`;
-  await runc(xcodeCleanStr)
-    .then((data) => {
-      console.log("成功0");
-      process.nextTick(() => task.next());
-    })
-    .catch((err) => {
-      logBook(err);
-      console.log("dzdzdzdzdz", err);
-    });
+  try {
+    log(`0   清空xcodebuild环境以及描述文件`);
+    const xcodeCleanStr = `xcodebuild clean -workspace ${projectObject.xcworkspacePath} -scheme ${projectObject.xcworkspaceName} -configuration ${projectObject.archiveType}`;
+    await runc(xcodeCleanStr)
+    process.nextTick(() => task.next());
+  } catch (error) {
+    console.log(error);
+    logBook(error);
+  }
 });
 
 task.on("copyResource", 1, async () => {
-  log(`1   拷贝资源文件`);
-  await runc(
-    `ruby copyResourceFile.rb ${projectObject.xcworkspaceName} ${projectObject.xcodeprojPath} ${projectObject.resourcePath}`
-  )
-    .then((data) => {
-      console.log("成功1");
-      process.nextTick(() => task.next());
-    })
-    .catch((err) => {
-      logBook(err);
-      console.log(err);
-    });
+  try {
+    log(`1   拷贝资源文件`);
+    await runc(
+      `ruby copyResourceFile.rb ${projectObject.xcworkspaceName} ${projectObject.xcodeprojPath} ${projectObject.resourcePath}`
+    )
+    process.nextTick(() => task.next());
+  } catch (error) {
+    logBook(error);
+  }
 });
 
 task.on("init-config", 2, async () => {
-  log(`2   初始化config`);
-  await setConfig(
-    appConfig,
-    projectObject.xcworkspaceName,
-    projectObject.entitlementsPath,
-    projectDirPath
-  )
-    .then((data) => {
-      console.log("成功1");
-      process.nextTick(() => task.next());
-    })
-    .catch((err) => {
-      logBook(err);
-      console.log(err);
-    });
+  try {
+    log(`2   初始化config`);
+    await setConfig(
+      appConfig,
+      projectObject.xcworkspaceName,
+      projectObject.entitlementsPath,
+      projectDirPath
+    );
+    process.nextTick(() => task.next());
+  } catch (error) {
+    logBook(error);
+  }
 });
 
 task.on("setPodfile", 3, async () => {
@@ -164,25 +155,20 @@ task.on("setPodfile", 3, async () => {
 
 // import-p12
 task.on("import-p12", 4, async () => {
-  log(`4  import-p12`);
-  const p12PathArr = projectObject.p12Path;
-  let isSuccess = [];
-  p12PathArr.forEach(async (item) => {
-    // console.log("dasdas",item)
-    const importKeyStr = `security import ${item} -k ${solveUrl(
-      "Library/Keychains/login.keychain"
-    )} -P ${projectObject.p12Password}`;
-    await runc(importKeyStr)
-      .then((data) => {
-        isSuccess.push(true);
-        if (isSuccess.length == p12PathArr.length) process.nextTick(() => task.next());
-        console.log("成功4");
-      })
-      .catch((err) => {
-        logBook(err);
-        console.log(err);
-      });
-  });
+  try {
+    log(`4  import-p12`);
+    const p12PathArr = projectObject.p12Path;
+    p12PathArr.forEach(async (item) => {
+      // console.log("dasdas",item)
+      const importKeyStr = `security import ${item} -k ${solveUrl(
+        "Library/Keychains/login.keychain"
+      )} -P ${projectObject.p12Password}`;
+      await runc(importKeyStr)
+    });
+    process.nextTick(() => task.next());
+  } catch (error) {
+    logBook(error);
+  }
 });
 
 // 获取描述文件的信息 并且复制一份UUID.mobileprovision到电脑下的指定位置
@@ -193,15 +179,7 @@ task.on("cp-provision", 5, async () => {
     const cmd = `security find-identity -p codesigning ${solveUrl(
       "Library/Keychains/login.keychain-db"
     )}`;
-    let db;
-    await runc(cmd)
-      .then((data) => {
-        db = data;
-      })
-      .catch((err) => {
-        logBook(err);
-        console.log(err);
-      });
+    const db = await runc(cmd);
     console.log("==>  searchCertName db  ", db);
     const MatchingStr = db.match(
       /Matching\sidentities([\s\S]*)\d+\sidentities\sfound/
@@ -262,17 +240,9 @@ task.on("mk-archive", 6, async () => {
   try {
     log(`6  mk-archive`);
     console.log("certName 24", projectObject.certName);
-    const test = projectObject.certName.replace(/\s/g, "#");
-    const xcodeArchiveStr = `xcodebuild archive -workspace ${projectObject.xcworkspacePath} -scheme ${projectObject.xcworkspaceName} -archivePath ${projectObject.archivePath} -configuration ${projectObject.archiveType} CODE_SIGN_IDENTITY=${test} PROVISIONING_PROFILE=${projectObject.mobileprovisionUUID} PRODUCT_BUNDLE_IDENTIFIER=${projectObject.bundleID}`;
-    await runc(xcodeArchiveStr)
-      .then((data) => {
-        console.log("成功6");
-        process.nextTick(() => task.next());
-      })
-      .catch((err) => {
-        logBook(err);
-        console.log(err);
-      });
+    const xcodeArchiveStr = `xcodebuild archive -workspace ${projectObject.xcworkspacePath} -scheme ${projectObject.xcworkspaceName} -archivePath ${projectObject.archivePath} -configuration ${projectObject.archiveType} CODE_SIGN_IDENTITY="${projectObject.certName}" PROVISIONING_PROFILE=${projectObject.mobileprovisionUUID} PRODUCT_BUNDLE_IDENTIFIER="${projectObject.bundleID}"`;
+    await runc(xcodeArchiveStr);
+    process.nextTick(() => task.next());
   } catch (error) {
     logBook(error);
   }
@@ -287,18 +257,11 @@ task.on("exp-ipa", 7, async () => {
       projectObject.mobileprovisionUUID; // 1f9156d9-bef4-48c7-9954-a6e888c6bc0b
     const saveRes = await ptools.save(projectObject.exportTemplateFile, config);
     const exportIPAFileStr = `xcodebuild  -exportArchive -archivePath ${projectObject.archivePath} -exportPath ${projectObject.exportIPAPath} -exportOptionsPlist ${projectObject.exportTemplateFile}  -allowProvisioningUpdates`;
-    await runc(exportIPAFileStr)
-      .then((data) => {
-        console.log("成功7");
-        if (fse.existsSync(projectObject.copyMBFilePath)) {
-          fse.unlinkSync(projectObject.copyMBFilePath);
-        }
-        // process.nextTick(() => task.next());
-      })
-      .catch((err) => {
-        logBook(err);
-        console.log(err);
-      });
+    await runc(exportIPAFileStr);
+    if (fse.existsSync(projectObject.copyMBFilePath)) {
+      fse.unlinkSync(projectObject.copyMBFilePath);
+    }
+    // process.nextTick(() => task.next());
   } catch (error) {
     logBook(error);
     console.log("errorDZG", error);
