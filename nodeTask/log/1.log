@@ -1,11 +1,17 @@
 [2020-12-30 18:10:05]  undefinedruby: No such file or directory -- copyResourceFile1.rb (LoadError)
- [2020-12-30 18:10:56]  {"type":"Buffer","data":[114,117,98,121,58,32,78,111,32,115,117,99,104,32,102,105,108,101,32,111,114,32,100,105,114,101,99,116,111,114,121,32,45,45,32,99,111,112,121,82,101,115,111,117,114,99,101,70,105,108,101,49,46,114,98,32,40,76,111,97,100,69,114,114,111,114,41,10]} [2020-12-30 18:11:11]  ruby: No such file or directory -- copyResourceFile1.rb (LoadError)
- [2020-12-30 18:14:29]  ruby: No such file or directory -- copyResourceFile1.rb (LoadError)
- [2020-12-30 18:15:24]  2020-12-30 18:15:24.202 altool[24505:266402] *** Error: Errors uploading '/Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/pushViewTest.ipa': (
+ 
+[2020-12-30 18:10:56]  {"type":"Buffer","data":[114,117,98,121,58,32,78,111,32,115,117,99,104,32,102,105,108,101,32,111,114,32,100,105,114,101,99,116,111,114,121,32,45,45,32,99,111,112,121,82,101,115,111,117,114,99,101,70,105,108,101,49,46,114,98,32,40,76,111,97,100,69,114,114,111,114,41,10]} 
+[2020-12-30 18:11:11]  ruby: No such file or directory -- copyResourceFile1.rb (LoadError)
+ 
+[2020-12-30 18:14:29]  ruby: No such file or directory -- copyResourceFile1.rb (LoadError)
+ 
+[2020-12-30 18:15:24]  2020-12-30 18:15:24.202 altool[24505:266402] *** Error: Errors uploading '/Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/pushViewTest.ipa': (
     "Error Domain=ITunesTransporterErrorDomain Code=-18000 \"ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\"\" UserInfo={NSLocalizedRecoverySuggestion=ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\", NSLocalizedDescription=ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\", NSLocalizedFailureReason=ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\"}"
 )
- [2020-12-30 18:26:33]  security: Error reading infile /Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/生产证书1.p12: No such file or directory
- [2020-12-30 18:35:16]  anguage                                          specifies multiple optional ISO 639-1 languages included in a localization export
+ 
+[2020-12-30 18:26:33]  security: Error reading infile /Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/生产证书1.p12: No such file or directory
+ 
+[2020-12-30 18:35:16]  anguage                                          specifies multiple optional ISO 639-1 languages included in a localization export
     -xctestrun                                               specifies a path to a test run specification
     -testPlan                                                specifies the name of the test plan associated with the scheme to use for testing
     -only-testing                                            constrains testing by specifying tests to include, and excluding other tests
@@ -23,7 +29,8 @@
     -allowProvisioningDeviceRegistration                     Allow xcodebuild to register your destination device on the developer portal if necessary. This flag only takes effect if -allowProvisioningUpdates is also passed.
     -showBuildTimingSummary                                  display a report of the timings of all the commands invoked during the build
     -create-xcframework                                      create an xcframework from prebuilt libraries; -help for more information.
- [2020-12-30 18:36:20]  anguage                                          specifies multiple optional ISO 639-1 languages included in a localization export
+ 
+[2020-12-30 18:36:20]  anguage                                          specifies multiple optional ISO 639-1 languages included in a localization export
     -xctestrun                                               specifies a path to a test run specification
     -testPlan                                                specifies the name of the test plan associated with the scheme to use for testing
     -only-testing                                            constrains testing by specifying tests to include, and excluding other tests
@@ -41,9 +48,12 @@
     -allowProvisioningDeviceRegistration                     Allow xcodebuild to register your destination device on the developer portal if necessary. This flag only takes effect if -allowProvisioningUpdates is also passed.
     -showBuildTimingSummary                                  display a report of the timings of all the commands invoked during the build
     -create-xcframework                                      create an xcframework from prebuilt libraries; -help for more information.
- [2020-12-30 18:36:57]  2020-12-30 18:36:57.208 altool[26378:286048] *** Error: Errors uploading '/Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/pushViewTest.ipa': (
+ 
+[2020-12-30 18:36:57]  2020-12-30 18:36:57.208 altool[26378:286048] *** Error: Errors uploading '/Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/pushViewTest.ipa': (
     "Error Domain=ITunesTransporterErrorDomain Code=-18000 \"ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\"\" UserInfo={NSLocalizedRecoverySuggestion=ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\", NSLocalizedDescription=ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\", NSLocalizedFailureReason=ERROR ITMS-90189: \"Redundant Binary Upload. You've already uploaded a build with build number '5' for version number '1.3.9'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4).\"}"
 )
- [2020-12-30 18:41:17]  security: Error reading infile /Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/生产证书1.p12: No such file or directory
- [2020-12-30 18:41:17]  security: Error reading infile /Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/推送证书1.p12: No such file or directory
- 
+ 
+[2020-12-30 18:41:17]  security: Error reading infile /Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/生产证书1.p12: No such file or directory
+ 
+[2020-12-30 18:41:17]  security: Error reading infile /Users/mt010/Desktop/DZG_Desktop/打包类/打包测试/推送证书1.p12: No such file or directory
+ 

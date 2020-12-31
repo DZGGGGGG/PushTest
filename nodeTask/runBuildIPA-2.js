@@ -202,7 +202,7 @@ task.on("cp-provision", 5, async () => {
         logBook(err);
         console.log(err);
       });
-    console.log("==>  searchCertName db  ", db);
+    // console.log("==>  searchCertName db  ", db);
     const MatchingStr = db.match(
       /Matching\sidentities([\s\S]*)\d+\sidentities\sfound/
     );

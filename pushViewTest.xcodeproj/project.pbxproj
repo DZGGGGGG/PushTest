@@ -85,14 +85,14 @@
 		2AE0858F2596085A000E4788 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		2AE08591259608E7000E4788 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		2AE0859325960907000E4788 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		437DB21355B4164FC0EE53F0 /* icon-60@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
-		6A8275352DFAB41C870F1031 /* 1.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 1.js; sourceTree = "<group>"; };
+		4648750BDD08B29502AD5E63 /* icon-1024.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = "<group>"; };
+		5702540353CE8263DAD4D853 /* 2.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 2.js; sourceTree = "<group>"; };
+		570D6D15E50B274D6A42B422 /* icon-60@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@2x.png"; sourceTree = "<group>"; };
+		689BCBFAF239F976AFBC7819 /* 1.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 1.js; sourceTree = "<group>"; };
 		712C93B15B429B962125E746 /* libPods-pushViewTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pushViewTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		715E2D1A5AA7221FB95AD316 /* Pods-pushViewTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pushViewTest.debug.xcconfig"; path = "Target Support Files/Pods-pushViewTest/Pods-pushViewTest.debug.xcconfig"; sourceTree = "<group>"; };
+		8CA0C35E48008854D2132AB2 /* icon-60@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@3x.png"; sourceTree = "<group>"; };
 		9E1D441AE5E625D7607EBA59 /* Pods-pushViewTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pushViewTest.release.xcconfig"; path = "Target Support Files/Pods-pushViewTest/Pods-pushViewTest.release.xcconfig"; sourceTree = "<group>"; };
-		A839F0DD500F539250CCC09B /* icon-60@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-60@2x.png"; sourceTree = "<group>"; };
-		D86F43E9FED1346DE9DAB139 /* icon-1024.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = "<group>"; };
-		D89CBE2E02A15852D948C104 /* 2.js */ = {isa = PBXFileReference; includeInIndex = 1; path = 2.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,9 +192,9 @@
 		2A7A3FF92590B0DC00DDFE26 /* ios2 */ = {
 			isa = PBXGroup;
 			children = (
-				D89CBE2E02A15852D948C104 /* 2.js */,
-				6A8275352DFAB41C870F1031 /* 1.js */,
-				3D730E5A515839FD5181BDF5 /* 3 */,
+				5702540353CE8263DAD4D853 /* 2.js */,
+				689BCBFAF239F976AFBC7819 /* 1.js */,
+				FE43D9DF4013107CE087B99E /* 3 */,
 			);
 			path = ios2;
 			sourceTree = "<group>";
@@ -258,17 +258,6 @@
 			path = pushViewTestUITests;
 			sourceTree = "<group>";
 		};
-		3D730E5A515839FD5181BDF5 /* 3 */ = {
-			isa = PBXGroup;
-			children = (
-				437DB21355B4164FC0EE53F0 /* icon-60@3x.png */,
-				D86F43E9FED1346DE9DAB139 /* icon-1024.png */,
-				A839F0DD500F539250CCC09B /* icon-60@2x.png */,
-			);
-			name = 3;
-			path = 3;
-			sourceTree = "<group>";
-		};
 		811F5D9F8C7B346FA957F0B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +268,17 @@
 				712C93B15B429B962125E746 /* libPods-pushViewTest.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE43D9DF4013107CE087B99E /* 3 */ = {
+			isa = PBXGroup;
+			children = (
+				8CA0C35E48008854D2132AB2 /* icon-60@3x.png */,
+				4648750BDD08B29502AD5E63 /* icon-1024.png */,
+				570D6D15E50B274D6A42B422 /* icon-60@2x.png */,
+			);
+			name = 3;
+			path = 3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

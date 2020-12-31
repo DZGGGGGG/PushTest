@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DZGGGGGG/PushTest#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "cordova-res": "^0.15.2",
     "fs-extra": "^9.0.1",
     "mobileprovision-parse": "^0.2.1",
